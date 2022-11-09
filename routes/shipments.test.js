@@ -30,5 +30,15 @@ describe("POST /", function () {
         "productId": 1000
       })
       expect(resp.statusCode).toEqual(400);
+      expect(resp.body).toEqual({
+        "error": {
+          "message": [
+            "instance requires property \"name\"",
+            "instance requires property \"addr\"",
+            "instance requires property \"zip\""
+          ],
+          "status": 400
+        }
+      })
   })
 });
