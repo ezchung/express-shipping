@@ -22,4 +22,13 @@ describe("POST /", function () {
       .send();
     expect(resp.statusCode).toEqual(400);
   });
+
+  test("throws error if invalid input", async function () {
+    const resp = await request(app)
+      .post("/shipments")
+      .send({
+        "productId": 1000
+      })
+      expect(resp.statusCode).toEqual(400);
+  })
 });
